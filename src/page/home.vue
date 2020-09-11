@@ -2,19 +2,18 @@
   <div>
     <div class="hello">
       <h1>{{ msg }}</h1>
-      <van-button type="info">123</van-button>
+      <van-button type="info" @click="goBack">123</van-button>
     </div>
-    <van-checkbox v-model="checked">复选框</van-checkbox>
   </div>
 </template>
 
 <script>
 import { Button, Checkbox, CheckboxGroup, Card, SubmitBar, Toast } from "vant";
 
-console.log(Checkbox, "----------", Button);
 
+       console.log( window.history.length)
 export default {
-  name: "HelloWorld",
+  name: "Home",
   components: {
     [Button.name]: Button,
     [Card.name]: Card,
@@ -27,6 +26,12 @@ export default {
       checked: true,
       msg: "Welcome to Your Vue.js App"
     };
+  },
+   methods: {
+    goBack() {
+       console.log( window.history,'-------------',this.$router)
+       this.$router.push('/home/test')
+    }
   }
 };
 </script>
